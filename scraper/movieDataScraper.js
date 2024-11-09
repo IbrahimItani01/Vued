@@ -1,6 +1,7 @@
 import puppeteer from "puppeteer";
 import filmsUrls from "./filmsUrls.js";
 import fs from "fs/promises";
+import { release } from "os";
 
 const getMovieData = async (url,retries = 3)=>{
     let browser;
@@ -25,7 +26,20 @@ const getMovieData = async (url,retries = 3)=>{
             // select the div that contains the duration and genre data
             const movieSubtitle = movieContent.querySelector(".hero-film_subtitle");
             const durationAndGenre = movieSubtitle.querySelectorAll("p");
-            
+            // select the div that contains the image
+            const movieBody = document.querySelector(".hero-film_body");
+            if(!movieBody){
+                throw new Error("Movie body not found");
+            }
+            // selected the necessary data
+            const imageUrl = movieBody.querySelector("img")?.src;
+            const title = movieContent.querySelector("h1").innerText;
+            const duration = durationAndGenre[0].innerText;
+            const genre = durationAndGenre[1].innerText;
+            const releaseDate = movieBody.querySelector("p")?.innerText;
+            const description = movieBody.querySelector(".hero-film_desc")?.innerText;
+            // return the scraped data
+            return {title,duration,genre,imageUrl,releaseDate,description};
         })
 
     }catch(error){
