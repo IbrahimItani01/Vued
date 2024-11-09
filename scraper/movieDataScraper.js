@@ -5,6 +5,7 @@ import fs from "fs/promises";
 const getMovieData = async (url,retries = 3)=>{
     let browser;
     try{
+        // create a browser and page instance
         browser = await puppeteer.launch({
             headless:false,
             defaultViewport:null,
@@ -13,6 +14,18 @@ const getMovieData = async (url,retries = 3)=>{
         await page.goto(url,{
             waitUntil: 'domcontentloaded',
             timeout: 200000,
+        })
+        const moviePage = await page.evaluate(()=>{
+            // select the div with all data to scrape
+            const movieContent = document.querySelector(".hero-film_content");
+            // handle error if no content found
+            if (!movieContent){
+                throw new Error("Movie Content Not Found");
+            }
+            // select the div that contains the duration and genre data
+            const movieSubtitle = movieContent.querySelector(".hero-film_subtitle");
+            const durationAndGenre = movieSubtitle.querySelectorAll("p");
+            
         })
 
     }catch(error){
