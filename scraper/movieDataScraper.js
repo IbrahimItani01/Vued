@@ -1,7 +1,6 @@
 import puppeteer from "puppeteer";
 import filmsUrls from "./filmsUrls.js";
 import fs from "fs/promises";
-import { json } from "stream/consumers";
 let movieDataCollection = [];
 const getMovieData = async (url, retries = 3) => {
   let browser;
