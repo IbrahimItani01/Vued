@@ -9,6 +9,11 @@ const getMovieData = async (url,retries = 3)=>{
             headless:false,
             defaultViewport:null,
         });
+        const page =await browser.newPage();
+        await page.goto(url,{
+            waitUntil: 'domcontentloaded',
+            timeout: 200000,
+        })
 
     }catch(error){
         if (retries>0){
