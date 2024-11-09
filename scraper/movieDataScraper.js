@@ -1,8 +1,8 @@
 import puppeteer from "puppeteer";
 import filmsUrls from "./filmsUrls.js";
 import fs from "fs/promises";
-import { match } from "assert";
-
+import { json } from "stream/consumers";
+let movieDataCollection = [];
 const getMovieData = async (url, retries = 3) => {
   let browser;
   try {
@@ -68,6 +68,7 @@ const processInBatches = async (urls,batchSize = 5)=>{
     
         // Filter out any null results (failed URLs)
         const validResults = batchResults.filter((result) => result !== null);
+        // use the spread operator to increment previous records
         allMovieData.push(...validResults);
     
         console.log(`Batch ${Math.floor(i / batchSize) + 1} processed. Collected ${validResults.length} movies.`);
@@ -75,3 +76,17 @@ const processInBatches = async (urls,batchSize = 5)=>{
     //   return the current batch data in an array
     return allMovieData;
 }
+
+const finishAllData = async ()=>{
+    const urlsRange = filmsUrls.slice(0,24);
+    // final array with all data
+    movieDataCollection = await processInBatches(urlsRange);
+    // save results in a json file using fs library
+    try{
+        await fs.writeFile("movieDataCollection.json",JSON.stringify(movieDataCollection,null,2));
+        console.log("Data saved");
+    }catch (error){
+        console.error("Error writing file");
+    }
+};
+await finishAllData();
