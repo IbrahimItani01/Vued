@@ -1,6 +1,7 @@
 import puppeteer from "puppeteer";
 import filmsUrls from "./filmsUrls.js";
 import fs from "fs/promises";
+import { match } from "assert";
 
 const getMovieData = async (url, retries = 3) => {
   let browser;
@@ -54,7 +55,23 @@ const getMovieData = async (url, retries = 3) => {
     }
   }
 };
-
+// process multiple scrapes in batches
 const processInBatches = async (urls,batchSize = 5)=>{
     const allMovieData = [];
+    for (let i = 0; i < urls.length; i += batchSize) {
+        const currentBatch = urls.slice(i, i + batchSize);
+        console.log(`Processing batch ${Math.floor(i / batchSize) + 1}...`);
+        const batchResults = await Promise.all(
+            // apply scraping to each url in the batch
+          currentBatch.map((url) => getMovieData(url))
+        );
+    
+        // Filter out any null results (failed URLs)
+        const validResults = batchResults.filter((result) => result !== null);
+        allMovieData.push(...validResults);
+    
+        console.log(`Batch ${Math.floor(i / batchSize) + 1} processed. Collected ${validResults.length} movies.`);
+      }
+    //   return the current batch data in an array
+    return allMovieData;
 }
