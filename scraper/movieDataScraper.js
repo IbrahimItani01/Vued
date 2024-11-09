@@ -11,6 +11,10 @@ const getMovieData = async (url,retries = 3)=>{
         });
 
     }catch(error){
-        
+        if (retries>0){
+            console.log(`Retrying ${url} (${3-retries+1}/3)`);
+            await browser.close();
+            return await getMovieData(url,retries-1);
+        }
     }
 }
