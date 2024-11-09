@@ -40,7 +40,9 @@ const getMovieData = async (url,retries = 3)=>{
             const description = movieBody.querySelector(".hero-film_desc")?.innerText;
             // return the scraped data
             return {title,duration,genre,imageUrl,releaseDate,description};
-        })
+        });
+        await browser.close();
+        return moviePage;
 
     }catch(error){
         if (retries>0){
