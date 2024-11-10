@@ -17,8 +17,9 @@ $stmt2->bind_param("s",$email);
 
 $stmt2->execute();
 
+$stmt2->store_result();
 
-if($stmt->num_rows > 0){
+if($stmt2->num_rows > 0){
     $response = [];
     $response['status'] = 'failed';
     $response['message'] = 'User already registered';
@@ -26,6 +27,7 @@ if($stmt->num_rows > 0){
 
     // take the user to login page
     // header();
+    exit;
 }
 else{
     // adding the user 
@@ -50,6 +52,7 @@ if ($stmt->execute()){
     // take the user to login page
     // header();
 }else{
+    $response = [];
     $response['status'] = 'error';
     $response['message'] = 'error preparing statement' . $stmt->error;
 }
