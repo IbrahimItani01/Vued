@@ -17,7 +17,6 @@ if($result->num_rows > 0){
         "message"=>"records fetched",
         "array"=>$resultArray,
     ];
-    echo json_encode($response);
 }
 else{
     http_response_code(404);
@@ -26,5 +25,5 @@ else{
         "message" => "empty records",
         "array" => [],
     ];
-    echo json_encode($response);
 }
+echo json_encode($response);
