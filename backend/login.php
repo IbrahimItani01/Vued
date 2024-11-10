@@ -12,3 +12,11 @@ $sql = 'SELECT FROM users where email = ?';
 $stmt = $connection-> prepare($sql);
 
 $stmt->bind_param("s",$email);
+
+$stmt->execute();
+
+$stmt->store_result();
+
+if ($stmt-> num_rows == 1){
+
+}
