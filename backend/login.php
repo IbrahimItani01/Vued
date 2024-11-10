@@ -4,10 +4,10 @@ include 'connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email = $_POST['login_email'];
-    $hashed_pass = $_POST['login_pass'];
+    $password = $_POST['login_pass'];
 }
 
-$sql = 'SELECT FROM users where email = ?';
+$sql = 'SELECT password FROM users where email = ?';
 
 $stmt = $connection-> prepare($sql);
 
@@ -18,5 +18,9 @@ $stmt->execute();
 $stmt->store_result();
 
 if ($stmt-> num_rows == 1){
+    // storing the retrieved pass to variable $hashed_pass
+    $stmt->bind_result($hashed_pass);
+    $stmt->fetch;
+
 
 }
