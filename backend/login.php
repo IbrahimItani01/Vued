@@ -1,3 +1,10 @@
 <?php
 session_start();
 include 'connection.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $email = $_POST['login_email'];
+    $hashed_pass = $_POST['login_pass'];
+}
+
+$sql = 'SELECT FROM users where email = ?';
