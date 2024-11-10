@@ -22,7 +22,7 @@ $stmt->bind_param("ssssss",$email,$password,$name,$fav_genre,$banned,$user_type)
 if ($stmt->execute()){
     $response['status'] = 'success';
     $response['message'] = 'User successfully registered!';
-    header()
+    header();
 }else{
     $response['status'] = 'error';
     $response['message'] = 'error preparing statement' . $stmt->error;
