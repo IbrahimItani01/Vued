@@ -20,7 +20,7 @@ foreach ($moviesArray1 as $movie){
     $releaseDate = $connection->real_escape_string($movie["releaseDate"]);
     $description = $connection->real_escape_string($movie["description"]);
 
-    $query = $connection->prepare("INSERT INTO movies (title, duration, genre, imageUrl, releaseDate, description) 
+    $query = $connection->prepare("INSERT INTO movies (title, duration, genre, image_url, release_date, description) 
             VALUES (?, ?, ?, ?, ?, ?)");
     $query->bind_param("sissss",$title,$duration,$genre,$imageUrl,$releaseDate,$description);
     $query->execute();
