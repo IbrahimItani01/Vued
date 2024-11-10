@@ -8,3 +8,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
     $password= $_POST['password'];
     $fav_genre = $_POST['fav_genre'];
 }
+
+$sql = "INSERT INTO users(email,password,name,favorite_genre,banned,user_type) VALUES(?,?,?,?,?,?)";
+
+$stmt = $connection->prepare($sql);
