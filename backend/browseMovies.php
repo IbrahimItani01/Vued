@@ -1,7 +1,7 @@
 <?php
 include "connection.php";
 
-$queryScript = "SELECT title,image_url from movies";
+$queryScript = "SELECT id,title,image_url from movies";
 
 $query = $connection->prepare($queryScript);
 $query->execute();
