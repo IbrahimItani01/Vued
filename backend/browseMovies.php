@@ -7,6 +7,7 @@ $query = $connection->prepare($queryScript);
 $query->execute();
 $result = $query->get_result();
 if($result->num_rows > 0){
+    http_response_code(200); 
     $resultArray =[];
     while($row = $result->fetch_assoc()){
         $resultArray[]= $row;
@@ -19,6 +20,7 @@ if($result->num_rows > 0){
     echo json_encode($response);
 }
 else{
+    http_response_code(404);
     $response=[
         "status" => "error",
         "message" => "empty records",
