@@ -20,7 +20,19 @@ $stmt->store_result();
 if ($stmt-> num_rows == 1){
     // storing the retrieved pass to variable $hashed_pass
     $stmt->bind_result($hashed_pass);
-    $stmt->fetch;
+    $stmt->fetch();
 
+    // checking if the password entered is valid
+    if (password_verify($password,$hashed_pass)){
+        $response = [];
+        $response['status']= "Success";
+        $response["message"]= 'password is correct';
+        echo json_encode($response);
+
+    }else{
+        $response = [];
+        $response['message'] = "check code";
+        echo json_encode($response);
+    }
 
 }
