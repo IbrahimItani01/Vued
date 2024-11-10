@@ -8,15 +8,12 @@ $query->execute();
 $result = $query->get_result();
 if($result->num_rows > 0){
     http_response_code(200); 
-    $resultArray =[];
-    while($row = $result->fetch_assoc()){
-        $resultArray[]= $row;
-    }
     $response =[
         "status"=>"success",
         "message"=>"records fetched",
-        "array"=>$resultArray,
+        "array"=>$result->fetch_all(MYSQLI_ASSOC),
     ];
+    
 }
 else{
     http_response_code(404);
