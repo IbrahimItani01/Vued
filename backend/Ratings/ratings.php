@@ -6,16 +6,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $movie_id = $_POST['movie_id'];
     $rate_value = $_POST['rate_value'];
 
-    $sql = "INSERT INTO ratings (user_id, movie_id, rate_value) VALUES ('$user_id', '$movie_id', '$rate_value')";
-    if ($connection->query($sql) === TRUE) {
+    $stmt = $connection->prepare("INSERT INTO ratings (user_id, movie_id, rate_value) VALUES (?, ?, ?)");
+
+    $stmt->bind_param("iii", $user_id, $movie_id, $rate_value);
+
+    if ($stmt->execute()) {
         echo json_encode(["message" => "Rating added successfully"]);
     } else {
-        echo json_encode(["error" => "Error: " . $connection->error]);
+        echo json_encode(["error" => "Error: " . $stmt->error]);
     }
+
+    $stmt->close();
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Retrieve user_id and movie_id from POST data
     $user_id = isset($_POST['user_id']) ? $_POST['user_id'] : null;
     $movie_id = isset($_POST['movie_id']) ? $_POST['movie_id'] : null;
     
@@ -36,3 +40,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     echo json_encode($ratings);
 }
+
