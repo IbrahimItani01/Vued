@@ -14,7 +14,7 @@ if ($moviesArray1==null || $moviesArray2==null){
 }
 foreach ($moviesArray1 as $movie){
     $title = $connection->real_escape_string($movie["title"]);
-    $duration = (int)$movie["duration"];
+    $duration = $connection->real_escape_string($movie["duration"]);
     $genre = $connection->real_escape_string($movie["genre"]);
     $imageUrl = $connection->real_escape_string($movie["imageUrl"]);
     $releaseDate = $connection->real_escape_string($movie["releaseDate"]);
@@ -22,7 +22,7 @@ foreach ($moviesArray1 as $movie){
 
     $query = $connection->prepare("INSERT INTO movies (title, duration, genre, image_url, release_date, description) 
             VALUES (?, ?, ?, ?, ?, ?)");
-    $query->bind_param("sissss",$title,$duration,$genre,$imageUrl,$releaseDate,$description);
+    $query->bind_param("ssssss",$title,$duration,$genre,$imageUrl,$releaseDate,$description);
     $query->execute();
     if($query->affected_rows>0){
         $count++;
@@ -30,7 +30,7 @@ foreach ($moviesArray1 as $movie){
 }
 foreach ($moviesArray2 as $movie){
     $title = $connection->real_escape_string($movie["title"]);
-    $duration = (int)$movie["duration"];
+    $duration = $connection->real_escape_string($movie["duration"]);
     $genre = $connection->real_escape_string($movie["genre"]);
     $imageUrl = $connection->real_escape_string($movie["imageUrl"]);
     $releaseDate = $connection->real_escape_string($movie["releaseDate"]);
@@ -38,7 +38,7 @@ foreach ($moviesArray2 as $movie){
 
     $query = $connection->prepare("INSERT INTO movies (title, duration, genre, image_url, release_date, description) 
             VALUES (?, ?, ?, ?, ?, ?)");
-    $query->bind_param("sissss",$title,$duration,$genre,$imageUrl,$releaseDate,$description);
+    $query->bind_param("ssssss",$title,$duration,$genre,$imageUrl,$releaseDate,$description);
     $query->execute();
     if($query->affected_rows>0){
         $count++;
