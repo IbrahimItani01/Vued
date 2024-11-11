@@ -27,11 +27,17 @@ if ($stmt-> num_rows == 1){
         $response = [];
         $response['status']= "Success";
         $response["message"]= 'password is correct';
+        http_response_code(200);
         echo json_encode($response);
+
+        // take the user to the main page
+        // header();
 
     }else{
         $response = [];
-        $response['message'] = "check code";
+        $response['status'] = "login failed";
+        $response['message'] = "Password incorrect!";
+        http_response_code(404);
         echo json_encode($response);
     }
 
