@@ -6,7 +6,7 @@ $query = $connection->prepare("SELECT * from movies where id=?");
 $query->bind_param("i", $targetId);
 $query->execute();
 $result = $query->get_result();
-if($query->num_rows > 0) {
+if($result->num_rows > 0) {
     http_response_code(200);
     $response =[
         "status"=>"success",
