@@ -9,13 +9,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("ii", $user_id, $movie_id);
 
     if ($stmt->execute()) {
-        echo json_encode(["message" => "Booksmark added successfully"]);
+        http_response_code(response_code: 200);
+        echo json_encode(["message" => "Bookmarks added successfully"]);
     } else {
+        http_response_code(404);
         echo json_encode(["error" => "Error: " . $stmt->error]);
     }
 
     $stmt->close();
 }
-
-?>
 
