@@ -23,3 +23,19 @@
 .login-logo{
     width: 4rem;
 }
+.title{
+    font-weight: bold;
+    font-size: 2.3rem;
+    color: #fff;
+}
+.top{
+    margin-top: 1.5rem;
+}
+
+.bubble{
+    margin-top: 2rem;
+    border: 1px solid yellow;
+    width: 600px;
+    height: 420px;
+    background:rgba(217, 217, 217, 0.4);
+}
