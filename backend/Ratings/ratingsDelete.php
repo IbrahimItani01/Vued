@@ -10,8 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
     if ($conn->query($sql) === TRUE) {
         echo json_encode(["message" => "Rating deleted successfully"]);
     } else {
-        echo json_encode(["error" => "Error: " . $conn->error]);
+        echo json_encode(["error" => "Error: " . $connection->error]);
     }
 }
-
-?>
