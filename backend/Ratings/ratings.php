@@ -11,15 +11,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $stmt->bind_param("iii", $user_id, $movie_id, $rate_value);
 
-    if ($stmt->execute()) {
+    if ($stmt->execute() && $stmt->affected_rows > 0) {
+        http_response_code(200);
         echo json_encode(["message" => "Rating added successfully"]);
     } else {
+        http_response_code(404);
         echo json_encode(["error" => "Error: " . $stmt->error]);
     }
 
     $stmt->close();
 }
-
-?>
 
 
