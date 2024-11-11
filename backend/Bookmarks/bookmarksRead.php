@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $connection->prepare($sql);
         $stmt->bind_param("i", $user_id);
     } else {
-        $stmt = $connection->prepare($sql);
+        http_response_code(404);
+        echo "user_id not set";
     }
 
     $stmt->execute();
@@ -21,10 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     while ($row = $result->fetch_assoc()) {
         $bookmarks[] = $row;
     }
-
+    http_response_code(200);
     echo json_encode($bookmarks);
     $stmt->close();
 } else {
+    http_response_code(404);
     echo json_encode(["error" => "Invalid request method. Use POST."]);
 }
-?>
