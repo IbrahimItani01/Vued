@@ -18,6 +18,9 @@ $test_stmt->execute();
 
 $test_stmt->store_results();
 
-if(){
-    
+if($test_stmt->num_rows > 0){
+    $response= [];
+    $response['status']= "failed";
+    $response['massege']= "Admin existing";
+    http_response_code(404);
 }
