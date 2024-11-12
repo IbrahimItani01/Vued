@@ -14,8 +14,8 @@
         <div class="container">
             <div class="content flex column align-center justify-center">
                 <!-- top half -->
-                <div class="top flex column align-center gap-2">
-                    <img src="/frontend/assets/logo.png" alt="vued logo">
+                <div class="top flex column align-center gap-1">
+                    <img src="assets/logo.png" alt="vued logo" class="login-logo">
                     <p class="title pf">VUED</p>
                     <p class="title pf">WHERE EVERY MOVIE NIGHT BEGINS!</p>
                 </div>
@@ -23,7 +23,16 @@
                 <!-- lower half -->
                 <div class="bubble">
                     <form class="login-form">
-                        <input type="text">
+                        <!-- username -->
+                        <div class="flex column align-center justify-center gap-2">
+                            <label>Username</label>
+                            <input type="text" id="username" placeholder="name">
+                        </div>
+                        <!-- genre -->
+                        <div class="flex column align-center justify-center gap-2 mt-1">
+                            <label>Favourite Genre</label>
+                            <input id="fav-genre" >
+                        </div>
                     </form>
                 </div>
             </div>
