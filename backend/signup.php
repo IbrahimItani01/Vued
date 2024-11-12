@@ -23,6 +23,7 @@ if($stmt2->num_rows > 0){
     $response = [];
     $response['status'] = 'failed';
     $response['message'] = 'User already registered';
+    http_response_code(404);
     echo json_encode($response);
 
     // take the user to login page
@@ -32,12 +33,12 @@ if($stmt2->num_rows > 0){
 else{
     // adding the user 
 $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
-echo $hashed_pass;
+
 $sql = "INSERT INTO users(email,password,name,favorite_genre,banned,user_type) VALUES(?,?,?,?,?,?)";
 
 $user_type = "normal";
 
-$banned = false;
+$banned = '0';
 
 $stmt = $connection->prepare($sql);
 
@@ -47,6 +48,7 @@ if ($stmt->execute()){
     $response = [];
     $response['status'] = 'success';
     $response['message'] = 'User successfully registered!';
+    http_response_code(200);
     echo json_encode($response);
 
     // take the user to login page
@@ -55,5 +57,6 @@ if ($stmt->execute()){
     $response = [];
     $response['status'] = 'error';
     $response['message'] = 'error preparing statement' . $stmt->error;
+    http_response_code(404);
 }
 }
