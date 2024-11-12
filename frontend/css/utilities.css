@@ -2,10 +2,17 @@
     font-family: 'Montserrat';
     src: url('./assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'Roboto';
+    src: url('./assets/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+}
 .pf{
     font-family: 'Montserrat';
 }
 
+.sf{
+    font-family:'Roboto';
+}
 .flex{
     display: flex;
 }
@@ -75,4 +82,17 @@
 }
 p{
     font-family: sans-serif;
+}
+
+input{
+    border-radius: 10px;
+    padding: 0.4rem;
+    border: none;
+}
+label{
+    font-family:'Roboto';
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color:#F40000;
 }
