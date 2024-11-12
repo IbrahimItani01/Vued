@@ -25,7 +25,7 @@ if ($stmt-> num_rows == 1){
     // checking if the password entered is valid
     if (password_verify($password,$hashed_pass)){
 
-        $sql2= 'SELECT user_type, banned FROM users where email = ? '
+        $sql2= 'SELECT user_type, banned FROM users where email = ? ';
         
         $stmt2 = $connection->prepare($sql2);
 
@@ -33,8 +33,9 @@ if ($stmt-> num_rows == 1){
 
         $stmt2->execute();
 
-        $stmt->store_result();
+        $stmt2->store_result();
 
+        $stmt2->bind_result($user_type, $banned);
         
 
         $reesponse = [];
