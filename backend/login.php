@@ -36,12 +36,18 @@ if ($stmt-> num_rows == 1){
         $stmt2->store_result();
 
         $stmt2->bind_result($user_type, $banned);
-
+        // get the binded results
+        $stmt2->fetch();
+        
         if($banned == "1"){
             $response = [];
             $response['status'] = "failed";
             $response['massage'] = "User banned";
-            
+            http_response_code(404);
+            echo json_encode($response);
+
+            // dont allow the user to enter the website
+            // header()
         }
 
         // if user is admin
