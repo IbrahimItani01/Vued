@@ -36,16 +36,33 @@ if ($stmt-> num_rows == 1){
         $stmt2->store_result();
 
         $stmt2->bind_result($user_type, $banned);
-        
 
+        if($banned == "1"){
+            $response = [];
+            $response['status'] = "failed";
+            $response['massage'] = "User banned";
+            
+        }
+
+        // if user is admin
+        if($user_type == "admin"){
+            $response = [];
+            $response['status'] = "success";
+            $response['massage'] = "Hello admin"; 
+            http_response_code(200);
+            echo json_encode($response);
+            // move the admin to the admin page
+            // header()
+        }
+        else{
         $reesponse = [];
         $response['status']= "Success";
         $response["message"]= 'password is correct';
         http_response_code(200);
         echo json_encode($response);
-
-        // take the user to the main page
+        // move the user to the main website
         // header();
+        }
 
     }else{
         $response = [];
