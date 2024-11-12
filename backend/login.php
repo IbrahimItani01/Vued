@@ -24,7 +24,20 @@ if ($stmt-> num_rows == 1){
 
     // checking if the password entered is valid
     if (password_verify($password,$hashed_pass)){
-        $response = [];
+
+        $sql2= 'SELECT user_type, banned FROM users where email = ? '
+        
+        $stmt2 = $connection->prepare($sql2);
+
+        $stmt2->bind_param("s",$email);
+
+        $stmt2->execute();
+
+        $stmt->store_result();
+
+        
+
+        $reesponse = [];
         $response['status']= "Success";
         $response["message"]= 'password is correct';
         http_response_code(200);
