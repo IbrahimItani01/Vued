@@ -14,27 +14,32 @@
         <div class="container">
             <div class="content flex column align-center justify-center">
                 <!-- top half -->
-                <div class="top flex column align-center gap-1">
-                    <img src="assets/logo.png" alt="vued logo" class="login-logo">
+                <div class="login-top flex column align-center gap-1">
+                    <img src="assets/logo.png" alt="vued logo" class="login-logo mb-1">
                     <p class="title pf">VUED</p>
                     <p class="title pf">WHERE EVERY MOVIE NIGHT BEGINS!</p>
                 </div>
 
                 <!-- lower half -->
-                <div class="bubble">
+                <div class="login-bubble">
                     <form class="login-form">
                         <!-- username -->
                         <div class="flex column align-center justify-center gap-2">
-                            <label>Username</label>
-                            <input type="text" id="username" placeholder="name">
+                            <label>Email</label>
+                            <input type="text" id="login-email" placeholder="name" required>
                         </div>
-                        <!-- genre -->
+
+                        <!-- password -->
                         <div class="flex column align-center justify-center gap-2 mt-1">
-                            <label>Favourite Genre</label>
-                            <input id="fav-genre" >
-                        </div>
+                            <label>Password</label>
+                            <input id="login-pass" type="password" placeholder="***" required>
+                        <!-- login btn -->
+                            <button class="login-btn" id="login-btn" type="submit">Login</button>
+                        </div>                           
                     </form>
                 </div>
+                <!-- signup text -->
+                 <p class="signup-text mt-3">Dont have an account? <span class="signup-sen sf"><a href="">SIGNUP</a></span> now!</p>
             </div>
         </div>
     </div>
