@@ -23,12 +23,11 @@ body{
     background-image: url('/frontend/assets/smoke-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+   
 }
 body>div{
     background-color: var(--secondary-color);
     opacity: 0.9;
-    z-index: -10;
 }
 img{
     width: 100%;
