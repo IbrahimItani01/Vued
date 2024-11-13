@@ -9,6 +9,10 @@ const signup_btn = document.getElementById('signup-btn');
 signup_btn.addEventListener('click',async (e)=>{
     e.preventDefault()
 
+    if (!username || !fav_genre || !email || !password) {
+        alert("Please fill in all fields.");
+    }
+
     const data = new FormData();
     data.append("name",username.value);
     data.append("fav_genre",fav_genre.value);
@@ -21,7 +25,11 @@ signup_btn.addEventListener('click',async (e)=>{
             })
             
         const responseData = await result.json();
-        console.log(responseData);
+        console.log(responseData)
+        // take the user to the login page
+        if (responseData.status ==="success"){
+            window.Location.href = "http://localhost/vued/frontend/index.html"
+        }
         }catch(error){
 
         }

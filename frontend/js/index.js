@@ -19,14 +19,10 @@ login_btn.addEventListener("click", (e)=>{
     .then(response=>response.json())
     .then(data=>{
         if(data.status == "login-failed"){
-            const pass_msg= document.getElementById('pass-msg');
-            pass_msg.classList.remove('d-none')
-            pass_msg.textContent = "Wrong password"
+            alert("Wrong password")
         }
         if(data.status == "not-found"){
-            const email_msg = document.getElementById('email-msg')
-            email_msg.classList.remove('d-none')
-            email_msg.textContent = "Wrong email"
+            alert("wrong email")
         }
         if(data.status == "admin"){
             window.location.href = "http://localhost/vued/frontend/admin.html"
