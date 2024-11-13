@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/colors.css">
     <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vued|Signup</title>
@@ -33,28 +34,33 @@
                                     <label>Favourite genre</label>
                                     <select id="genre" class="genre-dropdown">
                                         <option value="" disabled selected>Genres</option>
-                                        <option value="option1">Option 1</option>
-                                        <option value="option2">Option 2</option>
-                                        <option value="option3">Option 3</option>
+                                        <option value="Comédie">Comédie</option>
+                                        <option value="Aventure">Aventure</option>
+                                        <option value="Famille">Famille</option>
+                                        <option value="Policier">Policier</option>
+                                        <option value="Animation">Animation</option>
+                                        <option value="Horreur">Horreur</option>
+                                        <option value="Drame">Drame</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <!-- password -->
+                            <!-- email -->
                             <div class="email-half">
                                 <div class="email-half-content  flex column align-center justify-center gap-1 mt-1">
                                     <label>Email</label>
                                     <input type="text" id="signin-email" placeholder="example@gmail.com" required>
+                                    <!-- password -->
                                     <label class="sf">Password</label>
-                                    <input id="signin-pass" type="password" placeholder="***" required>
+                                    <input id="signup-pass" type="password" required>
+                                    <button id="signup-btn" class="signup-btn" type="submit">SignUp</button>
                                 </div>
                             </div>
-                            <button id="signup-btn" class="signup-btn">SignUp</button>
                         </form>
                     </div>
                 </div>
                 <!-- signup text -->
-                 <p class="signup-text mt-3">Have an account?<span class="signup-sen sf"><a href="index.html" style="color:#F40000"> Sign-in</a></span></p>
+                 <p class="signup-text mt-1">Have an account?<span class="signup-sen sf"><a href="index.html" style="color:#F40000"> Sign-in</a></span></p>
             </div>
         </div>
     </div>
