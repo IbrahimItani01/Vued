@@ -108,17 +108,9 @@ body {
 
 .movie-content {
     display: flex;
-    align-items: center; /* Centers card vertically with respect to image */
+    align-items: center; 
     justify-content: center;
-    gap: 30px; /* Space between poster section and description */
-}
-
-.movie-details {
-    position: relative; /* Allows positioning the Rate button inside the card */
-    background: rgba(128, 0, 128, 0.7);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 600px;
+    gap: 50px; 
 }
 
 .rate-btn {
@@ -135,5 +127,23 @@ body {
 }
 
 .movie-details p {
-    padding-right: 60px; /* Space to avoid overlapping the Rate button */
+    padding-right: 60px; 
+}
+
+.movie-details {
+    background: rgba(128, 0, 128, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 450px;
+    aspect-ratio: 1 / 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    position: relative; 
+    height: auto; 
+}
+
+.movie-poster img {
+    width: 250px;
+    height: auto; 
 }
