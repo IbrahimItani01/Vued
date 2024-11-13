@@ -1,8 +1,29 @@
+@font-face {
+    font-family: "montserrat" ;
+    src: url('/frontend/fonts/montesserrat-roboto/Montserrat/Montserrat-Italic-VariableFont_wght.ttf');
+    font-weight: bold;
+}
+@font-face{
+    font-family: "roboto";
+    src: url('/frontend/fonts/montesserrat-roboto/Roboto/Roboto-Regular.ttf');
+}
+@font-face {
+    font-family: "roboto";
+    src: url('/frontend/fonts/montesserrat-roboto/Roboto/Roboto-Bold.ttf');
+    font-weight: bold;
+}
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     border: 0;
+    font-family: roboto;
+}
+body{
+    background-image: url('/frontend/assets/smoke-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
 }
 img{
     width: 100%;
@@ -14,14 +35,21 @@ nav{
     justify-content: space-between;
     padding: 10px;
     align-items: center;
-    background-color: antiquewhite;
+    box-shadow: 0 0 8px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.hidden{
+    display: none;
 }
 .mobile-nav{
     
     position: relative;
 }
 .mobile-nav-menu{
-    display: flex;
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 100%;
