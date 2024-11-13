@@ -28,6 +28,15 @@ login_btn.addEventListener("click", (e)=>{
             email_msg.classList.remove('d-none')
             email_msg.textContent = "Wrong email"
         }
+        if(data.status == "admin"){
+            window.location.href = "http://localhost/vued/frontend/admin.html"
+        }
+        // if(data.status == "banned"){
+        //     window.location.href = 
+        // }
+        // if(data.status == "normal"){
+        //     window.location.href =
+        // }
     })
     .catch(error=> console.error(error))
         
