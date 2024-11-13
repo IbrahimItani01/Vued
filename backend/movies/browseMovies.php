@@ -1,5 +1,5 @@
 <?php
-include "connection.php";
+include "../connection.php";
 
 $queryScript = "SELECT id,title,image_url from movies";
 
