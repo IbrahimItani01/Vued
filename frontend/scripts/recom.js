@@ -1,49 +1,14 @@
-const movies = [
-    {
-        title: "Harry Potter et la chambre des secrets",
-        duration: "2h30",
-        genre: "Fantastique",
-        imageUrl: "https://media.pathe.fr/movie/alex/HO00002590/poster/md/31/movie&uuid=17C49091-AF19-4C4F-853E-C9F16F326428",
-        releaseDate: "Sortie : 04 déc. 2002",
-        description: "Alors que l'oncle Vernon, la tante Pétunia et son cousin Dudley reçoivent d'importants invités à dîner, Harry Potter est contraint de passer la soirée dans sa chambre. Dobby, un elfe, fait alors son apparition..."
-    },
-    {
-        title: "Le Dîner de cons",
-        duration: "1h20",
-        genre: "Comédie",
-        imageUrl: "https://media.pathe.fr/movie/900176/poster/md/6/film_8807.jpg",
-        releaseDate: "Sortie : 11 mars 1998",
-        description: "Tous les mercredis, Pierre Brochant et ses amis organisent un dîner où chacun doit amener un con. Celui qui a trouvé le plus spectaculaire est déclaré vainqueur..."
-    },
-];
-
-function getMovieRecommendation() {
-    const randomIndex = Math.floor(Math.random() * movies.length);
-    const movie = movies[randomIndex];
-    displayMovieRecommendation(movie);
-}
-
-function displayMovieRecommendation(movie) {
-    const resultDiv = document.getElementById('recommendation-result');
-    resultDiv.innerHTML = `
-        <h2>${movie.title}</h2>
-        <img src="${movie.imageUrl}" alt="${movie.title}" class="movie-image">
-        <p><strong>Duration:</strong> ${movie.duration}</p>
-        <p><strong>Genre:</strong> ${movie.genre}</p>
-        <p><strong>Release Date:</strong> ${movie.releaseDate}</p>
-        <p>${movie.description}</p>
-    `;
-}
-
 document.getElementById('chatbot-btn').addEventListener('click', function() {
     const chatbotContainer = document.getElementById('chatbot-container');
     chatbotContainer.style.display = chatbotContainer.style.display === 'none' ? 'block' : 'none';
 });
 
+// Close chatbot when the close button is clicked
 document.getElementById('close-chatbot').addEventListener('click', function() {
     document.getElementById('chatbot-container').style.display = 'none';
 });
 
+// Chatbot message handling
 document.getElementById("send-button").addEventListener("click", sendMessage);
 document.getElementById("chat-input").addEventListener("keypress", function(event) {
     if (event.key === "Enter") sendMessage();
@@ -55,46 +20,89 @@ async function sendMessage() {
 
     addChatMessage("User", userMessage);
 
-    try {
-        const aiResponse = await getAIResponse(userMessage);
-        addChatMessage("Chatbot", aiResponse);
-    } catch (error) {
-        addChatMessage("Chatbot", "Sorry, I couldn't fetch a recommendation at the moment.");
-        console.error("Error:", error);
-    }
+    let responseMessage;
+        responseMessage = await getAIResponse(userMessage);
+
+
+    addChatMessage("Chatbot", responseMessage);
     document.getElementById("chat-input").value = "";
 }
 
 function addChatMessage(sender, message) {
     const chatHistory = document.getElementById("chat-history");
     const messageElement = document.createElement("p");
-    messageElement.textContent = `${sender}: ${message}`;
+    messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
     chatHistory.appendChild(messageElement);
     chatHistory.scrollTop = chatHistory.scrollHeight;
 }
 
-async function getAIResponse(userMessage) {
-    const apiKey = "Ysk-proj-RlQ2GfHTTc0VONWf5_a9EMHA4EuWUrO4m-RSImhv4rdvO9bHQfQ9upnmsqgzr3zui_j5XqOBZuT3BlbkFJWgofH_9xn5ib8QrUeP_-qVfvhz6rhwBQ24G782h0g1yLD1rtcsjYyC9WYcCRyVJwTfgUPgqCUA"; // Replace with your actual API key
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${apiKey}`
-        },
-        body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [
-                { role: "system", content: "You are a helpful movie recommendation assistant." },
-                { role: "user", content: userMessage }
-            ],
-            max_tokens: 100
-        })
-    });
+async function getMovieRecommendationFromAPI() {
+    try {
+        const response = await fetch("http://localhost/Vued/backend/browseMovies.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
 
-    if (!response.ok) {
-        throw new Error(`API request failed with status ${response.status}`);
+        if (!response.ok) {
+            throw new Error(`API request failed with status ${response.status}`);
+        }
+
+        const data = await response.json();
+        if (data.status === "success" && Array.isArray(data.array) && data.array.length > 0) {
+            // Select a random movie from the fetched movies
+            const randomIndex = Math.floor(Math.random() * data.array.length);
+            const movie = data.array[randomIndex];
+            return formatMovieRecommendation(movie);
+        } else {
+            throw new Error("No movies found in the API response.");
+        }
+    } catch (error) {
+        console.error("Error fetching movies:", error);
+        return "Sorry, I couldn't fetch a movie recommendation at the moment.";
     }
+}
 
-    const data = await response.json();
-    return data.choices[0].message.content.trim();
+// Format movie information for display in the chatbot
+function formatMovieRecommendation(movie) {
+    return `
+        <strong>${movie.title}</strong><br>
+        <img src="${movie.image_url}" alt="${movie.title}" style="width:100px; height:auto; border-radius:5px;"><br>
+        <strong>Duration:</strong> ${movie.duration}<br>
+        <strong>Genre:</strong> ${movie.genre}<br>
+        <strong>Release Date:</strong> ${movie.release_date}<br>
+        <p>${movie.description}</p>
+    `;
+}
+
+async function getAIResponse(userMessage) {
+    const apiKey = "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"; // Replace with your actual OpenAI API key
+    try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: "gpt-3.5-turbo",
+                messages: [
+                    { role: "system", content: "You are a movie chatbot and do not answer any other questions that are not related to movies, your answers are consize and does not exceed 100 characters." },
+                    { role: "user", content: userMessage }
+                ],
+                max_tokens: 100
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`AI API request failed with status ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.choices[0].message.content.trim();
+    } catch (error) {
+        console.error("Error fetching AI response:", error);
+        return "Sorry, I couldn't fetch a response at the moment.";
+    }
 }

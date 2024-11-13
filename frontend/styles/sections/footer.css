@@ -4,8 +4,19 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "Montserrat";
+    src: url("/frontend/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+  }
+  
+@font-face {
+    font-family: "Roboto";
+    src: url("/frontend/fonts/Roboto/Roboto-Medium.ttf");
+    font-weight: bold;
+  }
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto";
 }
 
 .footer {
