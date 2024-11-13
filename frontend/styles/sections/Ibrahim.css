@@ -1,8 +1,7 @@
 .hero-section{
     position: relative;
-    max-width: 1510px;
-    margin-inline: auto;
-    
+    background-color: var(--secondary-color);
+    opacity: 0.8;
 }
 
 .hero-movie-info{
@@ -18,3 +17,51 @@
     display: flex;
     flex-direction: column;
 }
+.featured-section {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 10px;
+    gap: 20px;
+    background-color: var(--secondary-color);
+    opacity: 0.8;
+}
+.featured-container {
+    display: flex;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    height: 300px;
+    box-shadow: 0 0 8px;
+    scroll-snap-type: x mandatory; 
+}
+.featured-img{
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 80%;
+}
+.featured-img>img{
+    object-fit: cover;
+
+}
+
+.featured-card {
+    min-width: 100%; 
+    scroll-snap-align: start; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    cursor: pointer;
+}
+.featured-container-large{
+    display: none;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.featured-container-large>div{
+    width: 250px;
+    box-shadow: 0 0 8px;
+    height: 300px;
+}
+
