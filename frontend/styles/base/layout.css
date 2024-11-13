@@ -41,15 +41,13 @@ a{
     text-decoration: none;
     color: white;
 }
-.hidden{
-    display: none;
-}
+
 .mobile-nav{
     
     position: relative;
 }
 .mobile-nav-menu{
-    display: none;
+    display: flex;
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -94,6 +92,9 @@ a:hover{
     padding: 10px;
 }
 .large-signout-btn{
+    display: none;
+}
+.hidden{
     display: none;
 }
 @media screen  and (min-width: 800px) {
