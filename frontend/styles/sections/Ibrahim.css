@@ -1,0 +1,20 @@
+.hero-section{
+    position: relative;
+    max-width: 1510px;
+    margin-inline: auto;
+    
+}
+
+.hero-movie-info{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: var(--secondary-color);
+    opacity: 0.9;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
