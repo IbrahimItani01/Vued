@@ -1,5 +1,8 @@
 <?php
 session_start();
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 include 'connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -58,10 +61,10 @@ if ($stmt-> num_rows == 1){
             http_response_code(200);
             echo json_encode($response);
             // move the admin to the admin page
-            // header()
+            // header('../frontend/admin.html');
         }
         else{
-        $reesponse = [];
+        $response = [];
         $response['status']= "Success";
         $response["message"]= 'password is correct';
         http_response_code(200);
@@ -78,4 +81,11 @@ if ($stmt-> num_rows == 1){
         echo json_encode($response);
     }
 
+}
+else{
+    $response =[];
+    $response['status'] = "failed";
+    $response['massege'] = "user not found, signup now";
+    http_response_code(404);
+    echo json_encode($response);
 }
