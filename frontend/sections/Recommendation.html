@@ -3,49 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vued</title>
-    <link rel="icon" type="image/png" href="../assets/logo.png">
-    <link rel="stylesheet" href="/frontend/styles/sections/Yasmina.css" />
+    <title>Movie Page</title>
+    <link rel="stylesheet" href="/frontend/styles/sections/Recommendation.css">
+</head>
 <body>
-    <section class="recommended-movies container-image">
-        <img src="/frontend/assets/BackgroundImage.png" alt="BackgroundImage" class="background-image">
-        <h2>Recommended Movies</h2>
-        <div class="movie-container">
-            <div class="movie-box">
-                <div class="image-blur">
-                    <img src="/frontend/assets/Screenshot 2024-11-13 004753.png" alt="Inception">
-                </div>
-                <p>Inception</p>
-            </div>
-            
-            <div class="movie-box">
-                <div class="image-blur">
-                    <img src="/frontend/assets/Screenshot 2024-11-13 004857.png" alt="Pearl">
-                </div>
-                <p>Pearl</p>
-            </div>
-            
-            <div class="movie-box">
-                <div class="image-blur">
-                    <img src="/frontend/assets/Screenshot 2024-11-13 004947.png" alt="After">
-                </div>
-                <p>After</p>
-            </div>
+    <!-- Background Image with Blur -->
+    <div class="background-blur"></div>
 
-            <div class="movie-box">
-                <div class="image-blur">
-                    <img src="/frontend/assets/Screenshot 2024-11-13 014016.png" alt="After">
-                </div>
-                <p>After</p>
-            </div>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="/frontend/assets/logo.png" alt="Logo">
+        </div>
+        <nav class="nav-links">
+            <a href="#">Movies</a>
+            <a href="#">Recommended</a>
+            <a href="#">Bookmarks</a>
+            <button class="login-btn">Login</button>
+        </nav>
+    </header>
 
-            <div class="movie-box">
-                <div class="image-blur">
-                    <img src="/frontend/assets/Screenshot 2024-11-13 013917.png" alt="After">
-                </div>
-                <p>After</p>
+    <!-- Movie Content -->
+    <main class="movie-content">
+        <div class="movie-poster-section">
+            <div class="movie-poster">
+                <img src="/frontend/assets/Screenshot 2024-11-13 004753.png" alt="Movie Poster">
+            </div>
+            <h2 class="movie-title">Smile 2</h2>
+            <div class="movie-info">
+                <span>2024</span>
+                <span>Horror</span>
+                <span>2h 12m</span>
             </div>
         </div>
-    </section>
+        <div class="movie-details">
+            <p>Skye Riley (Naomi Scott) is an international superstar about to embark on a sold-out concert tour. But an encounter with a drug-dealing friend Lucas (Lukas Gage), who is the current holder of the Smile curse, throws her already turbulent life into freefall.</p>
+            <button class="rate-btn">Rate</button>
+        </div>
+    </main>
 </body>
 </html>

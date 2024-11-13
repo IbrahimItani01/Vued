@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('/frontend/assets/Screenshot\ 2024-11-13\ 004753.png') no-repeat center center;
+    background-size: cover;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: transparent; 
+}
+
+.logo img {
+    width: 50px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-btn {
+    padding: 5px 15px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    background-color: darkred;
+}
+
+
+.movie-poster img {
+    width: 250px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+.movie-details h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+
+.movie-info {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.movie-info span {
+    background-color: red;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+.rate-btn:hover {
+    background-color: darkred;
+}
+
+.movie-poster-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movie-title {
+    font-size: 2em;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.movie-content {
+    display: flex;
+    align-items: center; /* Centers card vertically with respect to image */
+    justify-content: center;
+    gap: 30px; /* Space between poster section and description */
+}
+
+.movie-details {
+    position: relative; /* Allows positioning the Rate button inside the card */
+    background: rgba(128, 0, 128, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+.rate-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.movie-details p {
+    padding-right: 60px; /* Space to avoid overlapping the Rate button */
+}
