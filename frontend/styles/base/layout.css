@@ -36,6 +36,13 @@ nav{
     padding: 10px;
     align-items: center;
     box-shadow: 0 0 8px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top:0;
+    background-color: var(--secondary-color);
+    opacity: 0.7;
+    z-index: 10000000;
 }
 a{
     text-decoration: none;
@@ -113,5 +120,25 @@ a:hover{
     .nav-links{
         display: flex;
     }
-   
+   .hero-movie-img{
+    width: 300px;
+   }
+   .hero-movie-img>img{
+    border-radius: 10px;
+
+   }
+   .hero-section{
+    height: 100vh;
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-around;
+
+   }
+   .hero-movie-info{
+    position: unset;
+    padding: 50px;
+    opacity: 0.8;
+    gap: 10px;
+}
 }
