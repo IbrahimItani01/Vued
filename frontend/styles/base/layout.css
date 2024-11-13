@@ -26,7 +26,29 @@ nav{
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: pink;
+    background-color: var(--secondary-color);
+    z-index: 1000;
+    padding: 10px;
+    border-radius: 10px;
+    height: 200px;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+a{
+    padding: 10px;
+    border-radius: 10px;
+}
+a:hover{
+    box-shadow: 0 0 5px;
+}
+.signout-btn{
+    background-color: var(--primary-color);
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
 }
 .nav-logo{
     width: 30px;
