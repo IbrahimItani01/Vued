@@ -33,4 +33,34 @@ nav{
 }
 .burger-logo{
     width: 30px;
+    cursor: pointer;
+}
+
+.nav-links{
+    display: none;
+    width: 400px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.large-signout-btn{
+    display: none;
+}
+@media screen  and (min-width: 800px) {
+    .mobile-nav{
+        display: none;
+    }
+    .signout-btn{
+        width: 200px;
+    }
+    nav{
+        padding-inline: 30px;
+    }
+    .large-signout-btn{
+        display: block;
+    }
+    .nav-links{
+        display: flex;
+    }
+   
 }
