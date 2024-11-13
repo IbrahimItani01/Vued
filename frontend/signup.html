@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/colors.css">
-    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/signup.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vued|Signup</title>
@@ -11,18 +11,18 @@
 <body>
     <div class="overlay">
         <!-- background -->
-        <div class="login-container">
+        <div class="signup-container">
             <div class="content flex column align-center justify-center">
                 <!-- top half -->
                 <div class="login-top flex column align-center gap-1">
                     <img src="assets/logo.png" alt="vued logo" class="login-logo mb-1">
-                    <p class="title pf">VUED | Signup</p>
+                    <p class="title pf" style="font-size: 1.3rem;">VUED | Signup</p>
                 </div>
 
                 <!-- lower half -->
                 <div class="signup-bubble">
                     <form class="signup-form" id="signup-form">
-                        <div class="flex align-center">
+                        <div class="form-container">
                             <!-- username half-->
                             <div class="username-half">
                                 <div class="username-half-content flex column align-center justify-center gap-1 mt-1">
@@ -44,16 +44,17 @@
                             <div class="email-half">
                                 <div class="email-half-content  flex column align-center justify-center gap-1 mt-1">
                                     <label>Email</label>
-                                    <input type="text" id="signin-email" placeholder="example@gmail.com">
+                                    <input type="text" id="signin-email" placeholder="example@gmail.com" required>
                                     <label class="sf">Password</label>
                                     <input id="signin-pass" type="password" placeholder="***" required>
                                 </div>
                             </div>
+                            <button id="signup-btn" class="signup-btn">SignUp</button>
                         </form>
                     </div>
                 </div>
                 <!-- signup text -->
-                 <p class="signup-text mt-3">Have an account?<span class="signup-sen sf"><a href=".html">Sign-in</a></span></p>
+                 <p class="signup-text mt-3">Have an account?<span class="signup-sen sf"><a href="index.html" style="color:#F40000"> Sign-in</a></span></p>
             </div>
         </div>
     </div>
