@@ -10,6 +10,10 @@ $username = 'root';
 $pass = '';
 $db = 'vueddb';
 
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
 $connection = new mysqli($host,$username,$pass,$db);
 
 if($connection -> connect_error){
