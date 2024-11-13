@@ -9,8 +9,9 @@ const signup_btn = document.getElementById('signup-btn');
 signup_btn.addEventListener('click',async (e)=>{
     e.preventDefault()
 
-    if (!username || !fav_genre || !email || !password) {
+    if (!username.value || !fav_genre.value || !email.value || !password.value) {
         alert("Please fill in all fields.");
+        return
     }
 
     const data = new FormData();
