@@ -1,7 +1,7 @@
 <?php
 include "connection.php";
-$targetId = $_POST["movieId"];
-
+$data = json_decode(json: file_get_contents(filename: "php://input"), true);
+$targetId = $data["movieId"];
 $query = $connection->prepare("SELECT * from movies where id=?");
 $query->bind_param("i", $targetId);
 $query->execute();
