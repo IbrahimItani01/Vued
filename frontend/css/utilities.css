@@ -52,6 +52,9 @@
 .mt-2{
     margin-top:2rem;
 }
+.mt-3{
+    margin-top: 3rem;
+}
 .ml-1{
     margin-left: 0.9rem;
 }
@@ -88,6 +91,9 @@ input{
     border-radius: 10px;
     padding: 0.4rem;
     border: none;
+}
+input:focus{
+    outline: none;
 }
 label{
     font-family:'Roboto';
