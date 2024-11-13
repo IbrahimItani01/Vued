@@ -23,21 +23,29 @@
                 <div class="signup-bubble">
                     <form class="signup-form" id="signup-form">
 
-                        <!-- username -->
-                        <div class="flex column align-center justify-center gap-2">
-                            <label>Email</label>
-                            <input type="text" id="login-email" placeholder="name" required>
-                            
+                        <!-- username half-->
+                        <div class="username-half flex column align-center justify-center gap-1">
+                            <!-- username -->
+                            <label>Username</label>
+                            <input type="text" id="username-input" placeholder="username" required>
+
+                            <label>Favourite genre</label>
+                            <select id="genre">
+                                <option value="" disabled selected>Genres:</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                              </select>
                         </div>
 
                         <!-- password -->
-                        <div class="flex column align-center justify-center gap-2 mt-1">
+                        <div class="flex column align-center justify-center gap-1 mt-1">
                             <label>Password</label>
                             <input id="login-pass" type="password" placeholder="***" required>
-                            
+                        </div>
                         <!-- login btn -->
                             <button class="login-btn" id="signup-btn" type="submit">signup</button>
-                        </div>                           
+                                                   
                     </form>
                 </div>
                 <!-- signup text -->
