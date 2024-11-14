@@ -27,9 +27,13 @@ DOCTYPE html>
                         <input type="text" id="admin-password" required>
                         <button class="add-admin-btn" id="add-admin-btn" type="submit">Add admin</button>
                     </form>             
-                    <!-- show movies  -->
-                    <div class="movies mt-3 ">
-                        <p>test</p>
+                    <!-- show users  -->
+
+                    <div class="users mt-3 " id="users">
+                        <div class="user flex space-between" id="user">
+                            <p id="user-email" class="user-email"></p>
+                            <button>Ban</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -37,5 +41,6 @@ DOCTYPE html>
     </div>
 
 <script src="js/admin.js"></script>
+<script src="js/getusers.js"></script>
 </body>
 </html>

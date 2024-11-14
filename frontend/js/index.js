@@ -11,7 +11,7 @@ login_btn.addEventListener("click", (e)=>{
     data.append("login_email", login_email.value);
     data.append("login_pass", login_pass.value);
 
-    fetch("http://localhost/vued/backend/login.php",{
+    fetch("http://localhost/vued/backend/authentication/login.php",{
         method: "POST",
         body: data
 

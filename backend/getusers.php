@@ -13,4 +13,10 @@ $stmt->execute();
 
 $result = $stmt->get_result();
 
-while($user = $stmt->fetch_assoc())
+$users = []; 
+
+while($user = $result->fetch_assoc()){
+    $users[]= $user;
+}
+
+echo json_encode($users);

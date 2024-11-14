@@ -10,7 +10,7 @@ h2{
 .content{
     height: auto;
     width:600px;
-    border: 1px solid yellow;
+    border: 1px solid #f40000;
     margin: 0 auto;
 }
 input{
@@ -18,10 +18,12 @@ input{
     width: 181px;
     background-color: white;
 }
-.movies{
+.users{
     width:400px;
     height:500px;
     border: solid 1px yellow;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 .add-admin-btn{
     background: #fff;
@@ -32,4 +34,12 @@ input{
 }
 .add-admin-btn:hover{
     cursor: pointer;
+}
+.user{
+    width: 375px;
+    height: 40px;
+    border: #fff 2px solid;
+}
+.user-email{
+    color: #fff;
 }

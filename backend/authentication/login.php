@@ -41,6 +41,8 @@ if ($stmt-> num_rows == 1){
 
         $stmt2->bind_result($user_type, $banned, $name, $id);
         // get the binded results
+        
+        $_SESSION['name']=$name;
 
         $stmt2->fetch();
 
