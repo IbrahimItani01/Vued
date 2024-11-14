@@ -7,12 +7,13 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
     $email = $_POST['email'];
     $password= $_POST['password'];
 }
+$user_type = "admin";
 
-$test_sql= "SELECT email FROM users where email = ?";
+$test_sql= "SELECT email FROM users where email = ? and user_type = ?";
 
 $test_stmt = $connection->prepare($test_sql);
 
-$test_stmt->bind_param("s",$email);
+$test_stmt->bind_param("ss",$email,$user_type);
 
 $test_stmt->execute();
 
@@ -38,8 +39,6 @@ if($test_stmt->num_rows > 0){
 
     $banned = "0";
     
-    $user_type = "admin";
-
     $stmt->bind_param("ssssss", $email, $hashed_pass,$name, $fav_genre, $banned,$user_type);
 
     if ($stmt->execute()){
