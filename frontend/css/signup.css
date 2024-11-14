@@ -11,6 +11,9 @@
     background-size: 25vw 100vh, 25vw 100vh, 25vw 100vh, 25vw 100vh;
     background-position: 0 0, 25vw 0, 50vw 0, 75vw 0;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .overlay{
     background: #58355E;
@@ -43,6 +46,7 @@
     border: none;
     outline: none;
 }
+
 .signup-btn{
     position: absolute;
     bottom: 40px;
