@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/frontend/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/frontend/styles/base/colors.css">
+    <link rel="stylesheet" href="/frontend/styles/sections/Ibrahim.css">
+    <link rel="stylesheet" href="/frontend/styles/base/layout.css">
+    <title>Vued | Your Movie Recommender</title>
+</head>
+<body>
+    <div>
+        <nav>
+            <div class="nav-logo">
+                <a href="/frontend/sections/Ibrahim.html">
+                    <img src="/frontend/assets/logo.svg" alt="Vued-Logo">
+                </a>            </div>
+            <div class="mobile-nav">
+                <div class="burger-logo" id="mobile-nav-btn">
+                    <img src="/frontend/assets/burger-icon.svg" alt="burger-icon">
+                </div>
+                <div class="hidden mobile-nav-menu " id="mobile-nav-menu">
+                    <!-- TODO: ADD PATHS TO PAGES -->
+                    <a href="/frontend/sections/movies.html">Movies</a>
+                    <a href="">Recommended</a>
+                    <a href="">Bookmarks</a>
+                    <a href="/frontend/index.html" class="signout-btn">Signout</a>
+                </div>
+            </div>
+     
+            <div class="nav-links">
+                <!-- TODO: ADD PATHS TO PAGES -->
+                <a href="/frontend/sections/movies.html">Movies</a>
+                <a href="">Recommended</a>
+                <a href="">Bookmarks</a>
+            </div>
+            <div class="large-signout-btn">
+                <a href="/frontend/index.html" class="signout-btn">Signout</a>
+            </div>
+        </nav>
+        <div class="hero-section main-section">
+            <div class="hero-movie-img" ><img id="hero-movie-img" src="" alt="movie"></div>
+            <div class="hero-movie-info">
+                <h2 id="hero-movie-title"></h2>
+                <p>
+                    <span id="hero-movie-year"></span> |
+                    <span id="hero-movie-genre"></span> |
+                    <span id="hero-movie-duration"></span>
+                </p>
+            </div>
+        </div>
+        <div class="main-section featured-section">
+            <h1>featured</h1>
+            <div class="featured-container" id="featured-container">
+                
+            </div>
+            
+            <div class="dots-img"><img src="/frontend/assets/3dots.svg" alt=""></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.js" integrity="sha512-luUnkeG+uabiT2pZdi5ME5uADvq+FpDs2fK5V0nVXrHCND9F077fKaE9W//oJvGnWSmwQmCau63A6s3um1NZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/frontend/js/ibrahim-sections/nav.js"></script>
+    <script src="/frontend/js/ibrahim-sections/hero.js"></script>
+    <script src="/frontend/js/ibrahim-sections/featured.js"></script>
+</body>
+</html>
