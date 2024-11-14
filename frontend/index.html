@@ -6,28 +6,46 @@
     <link rel="stylesheet" href="css/base.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vued</title>
+    <title>Vued | Login</title>
 </head>
 <body>
     <div class="overlay">
         <!-- background -->
-        <div class="container">
+        <div class="login-container">
             <div class="content flex column align-center justify-center">
                 <!-- top half -->
-                <div class="top flex column align-center gap-2">
-                    <img src="/frontend/assets/logo.png" alt="vued logo">
+                <div class="login-top flex column align-center gap-1">
+                    <img src="assets/logo.png" alt="vued logo" class="login-logo mb-1">
                     <p class="title pf">VUED</p>
                     <p class="title pf">WHERE EVERY MOVIE NIGHT BEGINS!</p>
                 </div>
 
                 <!-- lower half -->
-                <div class="bubble">
-                    <form class="login-form">
-                        <input type="text">
+                <div class="login-bubble">
+                    <form class="login-form" id="login-form">
+                        <!-- username -->
+                        <div class="flex column align-center justify-center gap-2">
+                            <label>Email</label>
+                            <input type="text" id="login-email" placeholder="name" required>
+                            <h6 id="email-msg" class="d-none"></h6>
+                        </div>
+
+                        <!-- password -->
+                        <div class="flex column align-center justify-center gap-2 mt-1">
+                            <label>Password</label>
+                            <input id="login-pass" type="password" placeholder="***" required>
+                            <h6 id="pass-msg" class="d-none">Wrong pass</h6>
+                        <!-- login btn -->
+                            <button class="login-btn" id="login-btn" type="submit">Login</button>
+                        </div>                           
                     </form>
                 </div>
+                <!-- signup text -->
+                 <p class="signup-text mt-3">Dont have an account? <span class="signup-sen sf"><a href="signup.html">SIGNUP</a></span> now!</p>
             </div>
         </div>
     </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
