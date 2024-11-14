@@ -4,7 +4,7 @@ session_start();
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
-include 'connection.php';
+include('../connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email = $_POST['login_email'];
