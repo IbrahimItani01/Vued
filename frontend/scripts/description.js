@@ -1,6 +1,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = localStorage.getItem('movieId');
 
+const bgblurimage = document.getElementById("bg-img");
+
 document.addEventListener("DOMContentLoaded", async () => {
     try {
         const response = await fetch('http://localhost/Vued/backend/getMovieData.php', {
@@ -22,6 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             document.getElementById('genre').textContent = movie.genre;
             document.getElementById('duration').textContent = movie.duration;
             document.getElementById('description').textContent = movie.description;
+            bgblurimage.style.backgroundImage = `url(${movie.image_url})`;
 
         } else {
             console.error("Movie details not found:", data.message);
