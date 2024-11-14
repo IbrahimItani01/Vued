@@ -1,29 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-@font-face {
-    font-family: "Montserrat";
-    src: url("/frontend/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
-  }
-  
-@font-face {
-    font-family: "Roboto";
-    src: url("/frontend/fonts/Roboto/Roboto-Medium.ttf");
-    font-weight: bold;
-  }
-
-body {
-    color: white;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #58355E; 
-    overflow: hidden;
-}
 
 .background {
     position: relative;
@@ -34,6 +9,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 50px;
+    padding-top: 120px;
 }
 
 .background::before {
@@ -73,6 +49,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    cursor: pointer;
 }
 
 

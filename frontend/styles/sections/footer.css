@@ -1,25 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-@font-face {
-    font-family: "Montserrat";
-    src: url("/frontend/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
-  }
-  
-@font-face {
-    font-family: "Roboto";
-    src: url("/frontend/fonts/Roboto/Roboto-Medium.ttf");
-    font-weight: bold;
-  }
-
-body {
-    font-family: "Roboto";
-}
 
 .footer {
+    margin-top: 20px;
     background: url('/frontend/assets/BackgroundImage.png') no-repeat center center;
     background-size: cover;
     padding: 20px 0;
@@ -38,14 +20,14 @@ body {
     width: 40px; 
 }
 
-.footer-nav a {
+.footer-nav >a {
     margin: 0 15px;
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-.footer-nav a:hover {
+.footer-nav >a:hover{
     text-decoration: underline;
 }
 

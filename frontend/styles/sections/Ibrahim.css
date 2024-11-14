@@ -65,7 +65,7 @@
 }
 .movies-section {
     margin-top: 80px;
-  padding-top: 40px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
