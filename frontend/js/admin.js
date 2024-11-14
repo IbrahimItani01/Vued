@@ -23,5 +23,12 @@ add_btn.addEventListener('click',async(e)=>{
         })
         const response = await result.json()
         console.log(response)
-    }catch(error){}
+        if (response.status === "success"){
+            alert("Admin added successfully")
+        }else{
+            alert("Admin registered already!")
+        }
+    }catch(error){
+        console.error(error)
+    }
 })
