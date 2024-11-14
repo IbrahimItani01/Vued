@@ -29,7 +29,7 @@ if ($stmt-> num_rows == 1){
     // checking if the password entered is valid
     if (password_verify($password,$hashed_pass)){
 
-        $sql2= 'SELECT user_type, banned, name FROM users where email = ? ';
+        $sql2= 'SELECT user_type, banned, name,id  FROM users where email = ? ';
         
         $stmt2 = $connection->prepare($sql2);
 
@@ -39,7 +39,7 @@ if ($stmt-> num_rows == 1){
 
         $stmt2->store_result();
 
-        $stmt2->bind_result($user_type, $banned, $name);
+        $stmt2->bind_result($user_type, $banned, $name, $id);
         // get the binded results
 
         $stmt2->fetch();
@@ -64,6 +64,7 @@ if ($stmt-> num_rows == 1){
         $response = [];
         $response['status']= "normal";
         $response["message"]= 'password is correct';
+        $response['id'] = $id;
         http_response_code(200);
         echo json_encode($response);
         }
