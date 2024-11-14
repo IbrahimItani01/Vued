@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Movies</title>
+    <link rel="stylesheet" href="/frontend/styles/sections/recom.css">
+</head>
+<body>
+    <div class="background">
+        <h1 class="title">Recommended Movies</h1>
+        <div class="image-row">
+            <div class="image-container">
+                <img src="/frontend/assets/Screenshot 2024-11-13 004753.png">
+                <p class="image-title">Harry Potter</p>
+            </div>
+            <div class="image-container">
+                <img src="/frontend/assets/Screenshot 2024-11-13 004857.png">
+                <p class="image-title">Le Dîner de cons</p>
+            </div>
+            <div class="image-container">
+                <img src="/frontend/assets/Screenshot 2024-11-13 004947.png">
+                <p class="image-title">L'Etrange Noël de M. Jack</p>
+            </div>
+            <div class="image-container">
+                <img src="/frontend/assets/Screenshot 2024-11-13 004947.png">
+                <p class="image-title">CHANTONS SOUS LA PLUIE</p>
+            </div>
+            <div class="image-container">
+                <img src="/frontend/assets/Screenshot 2024-11-13 014016.png">
+                <p class="image-title">Pulp Fiction</p>
+            </div>
+            <button id="chatbot-btn" class="chatbot-btn">💬</button>
+        
+            <div id="chatbot-container" class="chatbot-container">
+              <div class="chatbot-header">
+                <h2>Movie Recommendation Chatbot</h2>
+                <button id="close-chatbot" class="close-chatbot">&times;</button>
+              </div>
+              <div id="chatbox" class="chatbox">
+                <div id="chat-history" class="chat-history"></div>
+                <input type="text" id="chat-input" placeholder="Ask for a movie recommendation..." />
+                <button id="send-button">Send</button>
+              </div>
+            </div>
+        </div>
+    </div>
+    
+<script src="/frontend/scripts/recom.js"></script>
+
+</body>
+</html>

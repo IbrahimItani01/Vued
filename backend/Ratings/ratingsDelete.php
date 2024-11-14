@@ -1,15 +1,15 @@
 <?php
-
 include('../connection.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
-    parse_str(file_get_contents("php://input"), $_DELETE);
-    $id = $_DELETE['id'];
+$user_id = $_POST['user_id'];
+$movie_id = $_POST['movie_id'];
 
-    $sql = "DELETE FROM ratings WHERE id = '$id'";
-    if ($conn->query($sql) === TRUE) {
-        echo json_encode(["message" => "Rating deleted successfully"]);
-    } else {
-        echo json_encode(["error" => "Error: " . $connection->error]);
-    }
+$query = $connection->prepare("DELETE FROM ratings WHERE user_id = ? AND movie_id = ? ");
+$query->bind_Param('ii', $user_id, $movie_id);
+
+if ($query->execute()) {
+    echo json_encode(["message" => "Rating deleted successfully."]);
+} else {
+    echo json_encode(["message" => "Error deleting rating."]);
 }
+?>
