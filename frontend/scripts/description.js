@@ -1,11 +1,11 @@
 const urlParams = new URLSearchParams(window.location.search);
-const movieId = localStorage.getItem('movieId');
+const movieId = localStorage.getItem('chosenMovie');
 
 const bgblurimage = document.getElementById("bg-img");
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const response = await fetch('http://localhost/Vued/backend/getMovieData.php', {
+        const response = await fetch('http://localhost/Vued/backend/movies/getMovieData.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -33,5 +33,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     } catch (error) {
         console.error("Error fetching movie details:", error);
     }
+    
 })
-

@@ -18,6 +18,7 @@ login_btn.addEventListener("click", (e)=>{
     })
     .then(response=>response.json())
     .then(data=>{
+        localStorage.setItem("currentUser",data.id);
         if(data.status == "login-failed"){
             alert("Wrong password")
         }
@@ -25,14 +26,13 @@ login_btn.addEventListener("click", (e)=>{
             alert("wrong email")
         }
         if(data.status == "admin"){
-            window.location.href = "http://localhost/vued/frontend/admin.html"
+            window.location.href = "http://127.0.0.1:5500/frontend/admin.html"
         }
-        // if(data.status == "banned"){
-        //     window.location.href = 
-        // }
+        if(data.status == "banned"){
+            return;
+        }
         if(data.status == "normal"){
-            // window.location.href = ""
-            console.log(data)
+            window.location.href = "http://127.0.0.1:5500/frontend/sections/Ibrahim.html"
         }
     })
     .catch(error=> console.error(error))

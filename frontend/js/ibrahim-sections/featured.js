@@ -24,6 +24,12 @@ document.addEventListener("DOMContentLoaded",()=>{
                 </div>
             `
         })
+        document.querySelectorAll(".featured-card").forEach((movieCard)=>{
+          movieCard.addEventListener("click",()=>{
+            localStorage.setItem("chosenMovie",movieCard.getAttribute("key"));
+            window.location.href="http://127.0.0.1:5500/frontend/sections/description.html"
+          })
+        })
     })
 
 })
