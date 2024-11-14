@@ -3,9 +3,34 @@ document.getElementById('chatbot-btn').addEventListener('click', function() {
     chatbotContainer.style.display = chatbotContainer.style.display === 'none' ? 'block' : 'none';
 });
 
-document.getElementById('close-chatbot').addEventListener('click', function() {
+    
+
+document.getElementById('close-chatbot').addEventListener('click',  async function() {
     document.getElementById('chatbot-container').style.display = 'none';
+
+    try{
+        const response = await fetch('http://localhost/Vued/backend/insertChat.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({"ai_messages" : AIMessages,
+                "user_messages" :userMessages,
+                "chats_id" : 1
+            })
+        });
+
+        if (response.ok){
+            console.log("Chatbot logged successfully.");
+        }else{
+            console.log("Failed to log chatbot.");
+        }
+    }catch(error){
+        console.error("Error calling API", error);
+    }
+
 });
+
 
 document.getElementById("send-button").addEventListener("click", sendMessage);
 document.getElementById("chat-input").addEventListener("keypress", function(event) {
@@ -41,6 +66,8 @@ function addChatMessage(sender, message) {
     }else{
         userMessages.push(message)
     };
+    console.log(userMessages);
+    console.log(AIMessages);
 }
 
 async function getMovieRecommendationFromAPI() {

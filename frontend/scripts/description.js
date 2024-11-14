@@ -1,24 +1,24 @@
 const urlParams = new URLSearchParams(window.location.search);
-const movieId = urlParams.get('id');
+const movieId = localStorage.getItem('movieId');
 
-async function fetchMovieDetails(id) {
+document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const response = await fetch('', {
+        const response = await fetch('http://localhost/Vued/backend/getMovieData.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ movieId: id })
+            body: JSON.stringify({ "movieId" : movieId })
         });
 
         const data = await response.json();
 
         if (response.ok && data.status === 'success') {
             const movie = data.array;
-
+            console.log(movie);
             document.getElementById('movie-title').textContent = movie.title;
-            document.getElementById('movie-poster').src = movie.imageUrl;
-            document.getElementById('release-date').textContent = movie.releaseDate;
+            document.getElementById('movie-poster').src = movie.image_url;
+            document.getElementById('release-date').textContent = movie.release_date;
             document.getElementById('genre').textContent = movie.genre;
             document.getElementById('duration').textContent = movie.duration;
             document.getElementById('description').textContent = movie.description;
@@ -30,10 +30,5 @@ async function fetchMovieDetails(id) {
     } catch (error) {
         console.error("Error fetching movie details:", error);
     }
-}
+})
 
-if (movieId) {
-    fetchMovieDetails(movieId);
-} else {
-    console.error("No movie ID found in URL.");
-}
