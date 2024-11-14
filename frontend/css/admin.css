@@ -1,0 +1,20 @@
+*{
+    margin: o;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+h2{
+    color: #fff;
+}
+.content{
+    height: 700px;
+    width:600px;
+    border: 1px solid yellow;
+    margin: 0 auto;
+}
+input{
+    padding: 0.3rem;
+    width: 181px;
+    background-color: white;
+}
