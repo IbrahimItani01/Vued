@@ -1,11 +1,9 @@
-document.getElementById('chatbot-btn').addEventListener('click', function() {
+document.getElementById('chatbot-btn')?.addEventListener('click', function() {
     const chatbotContainer = document.getElementById('chatbot-container');
     chatbotContainer.style.display = chatbotContainer.style.display === 'none' ? 'block' : 'none';
 });
 
-    
-
-document.getElementById('close-chatbot').addEventListener('click',  async function() {
+document.getElementById('close-chatbot')?.addEventListener('click',  async function() {
     document.getElementById('chatbot-container').style.display = 'none';
 
     try{
@@ -30,13 +28,10 @@ document.getElementById('close-chatbot').addEventListener('click',  async functi
     }
 
 });
-
-
-document.getElementById("send-button").addEventListener("click", sendMessage);
-document.getElementById("chat-input").addEventListener("keypress", function(event) {
+document.getElementById("send-button")?.addEventListener("click", sendMessage);
+document.getElementById("chat-input")?.addEventListener("keypress", function(event) {
     if (event.key === "Enter") sendMessage();
 });
-
 async function sendMessage() {
     const userMessage = document.getElementById("chat-input").value.trim();
     if (!userMessage) return;
@@ -50,10 +45,8 @@ async function sendMessage() {
     addChatMessage("Chatbot", responseMessage);
     document.getElementById("chat-input").value = "";
 }
-
 let userMessages = [];
 let AIMessages = [];
-
 function addChatMessage(sender, message) {
     const chatHistory = document.getElementById("chat-history");
     const messageElement = document.createElement("p");
@@ -69,46 +62,6 @@ function addChatMessage(sender, message) {
     console.log(userMessages);
     console.log(AIMessages);
 }
-
-async function getMovieRecommendationFromAPI() {
-    try {
-        const response = await fetch("http://localhost/Vued/backend/browseMovies.php", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error(`API request failed with status ${response.status}`);
-        }
-
-        const data = await response.json();
-        if (data.status === "success" && Array.isArray(data.array) && data.array.length > 0) {
-            // Select a random movie from the fetched movies
-            const randomIndex = Math.floor(Math.random() * data.array.length);
-            const movie = data.array[randomIndex];
-            return formatMovieRecommendation(movie);
-        } else {
-            throw new Error("No movies found in the API response.");
-        }
-    } catch (error) {
-        console.error("Error fetching movies:", error);
-        return "Sorry, I couldn't fetch a movie recommendation at the moment.";
-    }
-}
-
-function formatMovieRecommendation(movie) {
-    return `
-        <strong>${movie.title}</strong><br>
-        <img src="${movie.image_url}" alt="${movie.title}" style="width:100px; height:auto; border-radius:5px;"><br>
-        <strong>Duration:</strong> ${movie.duration}<br>
-        <strong>Genre:</strong> ${movie.genre}<br>
-        <strong>Release Date:</strong> ${movie.release_date}<br>
-        <p>${movie.description}</p>
-    `;
-}
-
 async function getAIResponse(userMessage) {
     const apiKey = "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"; // Replace with your actual OpenAI API key
     try {
@@ -139,3 +92,74 @@ async function getAIResponse(userMessage) {
         return "Sorry, I couldn't fetch a response at the moment.";
     }
 }
+
+const imageRow = document.getElementById("image-row");
+// save favorite genre of user
+let favoriteGenre;
+let movieData = [];
+document.addEventListener("DOMContentLoaded",()=>{
+    axios
+    .post(
+      "http://localhost/Vued/backend/UserData/getFavoriteGenre.php",
+      {
+        userId: localStorage.getItem("currentUser"),
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((response)=>{
+        favoriteGenre = response.data.array.favorite_genre;
+        localStorage.setItem("favoriteGenre",favoriteGenre)
+    })
+    axios
+    .post(
+      "http://localhost/Vued/backend/movies/browseMovies.php",
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((response)=>{
+        movieData = response.data.array;
+        localStorage.setItem("movieData",JSON.stringify(movieData))
+
+    })
+    const apiKey = "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"; // Replace with your actual OpenAI API key
+
+    axios
+    .post(
+      "https://api.openai.com/v1/chat/completions",
+      {
+                model: "gpt-3.5-turbo",
+                messages: [
+                    { role: "system", content: "you filter data based on condition i give you. let your response be only the data filtered purely no extra words" },
+                    { role: "user", content: `I have this movie data ${localStorage.getItem("movieData")} and the user favorite genre is ${localStorage.getItem("favoriteGenre")} filter the movie data accordingly make them 4 movies` }
+                ],
+      },
+      {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiKey}`
+        },
+      }
+    ).then((response)=>{
+        const filteredData = JSON.parse(response.data.choices[0].message.content);
+        console.log(filteredData);
+        filteredData.forEach((filteredMovie)=>{
+            imageRow.innerHTML+=`
+                <div class="image-container" key="${filteredMovie.id}">
+                    <img src="${filteredMovie.image_url}">
+                    <p class="image-title">${filteredMovie.title}</p>
+                </div>
+            `
+        })
+        document.querySelectorAll(".image-container").forEach((movieCard)=>{
+            movieCard.addEventListener("click",()=>{
+              localStorage.setItem("chosenMovie",movieCard.getAttribute("key"));
+              window.location.href="http://127.0.0.1:5500/frontend/sections/description.html"
+            })
+          })
+    })
+})
