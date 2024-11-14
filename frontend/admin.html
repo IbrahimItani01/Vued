@@ -1,0 +1,46 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vued | Admin</title>
+</head>
+<body>
+    <div class="container">
+        <div class="flex column align-center justify-center gap-3">
+            <div class="admin-logo">
+                <img src="assets/logo.svg" alt="vued logo">
+            </div>
+            <div class="flex column align-center">
+                <div class="content flex column align-center">
+                    <!-- add admin title -->
+                    <h2>Add Admin</h2>
+                    <!-- add admin -->
+                    <form class="flex column align-center gap-1">
+                        <label>Admin name</label>
+                        <input type="text" id="admin-name" required>
+                        <label>Email</label>
+                        <input type="text" id="admin-email" required>
+                        <label>Password</label>
+                        <input type="text" id="admin-password" required>
+                        <button class="add-admin-btn" id="add-admin-btn" type="submit">Add admin</button>
+                    </form>             
+                    <!-- show users  -->
+
+                    <div class="users mt-3 " id="users">
+                        <div class="user flex space-between" id="user">
+                            <p id="user-email" class="user-email"></p>
+                            <button>Ban</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="js/admin.js"></script>
+<script src="js/getusers.js"></script>
+</body>
+</html>

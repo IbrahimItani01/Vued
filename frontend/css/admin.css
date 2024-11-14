@@ -1,0 +1,45 @@
+*{
+    margin: o;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+h2{
+    color: #fff;
+}
+.content{
+    height: auto;
+    width:600px;
+    border: 1px solid #f40000;
+    margin: 0 auto;
+}
+input{
+    padding: 0.3rem;
+    width: 181px;
+    background-color: white;
+}
+.users{
+    width:400px;
+    height:500px;
+    border: solid 1px yellow;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.add-admin-btn{
+    background: #fff;
+    border: none;
+    border-radius: 6px;
+    width: 70px;
+    padding: 0.3rem;
+}
+.add-admin-btn:hover{
+    cursor: pointer;
+}
+.user{
+    width: 375px;
+    height: 40px;
+    border: #fff 2px solid;
+}
+.user-email{
+    color: #fff;
+}

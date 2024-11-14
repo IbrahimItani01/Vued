@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/frontend/assets/favicon.ico" type="image/x-icon">
+<title>Vued | Movie Info</title>
+    <link rel="stylesheet" href="/frontend/styles/sections/descripton.css">
+    <link rel="stylesheet" href="/frontend/styles/base/layout.css">
+
+</head>
+<body>
+    <div class="background-blur" id="bg-img"></div>
+
+    <nav>
+        <div class="nav-logo">
+            <a href="/frontend/sections/Ibrahim.html">
+                <img src="/frontend/assets/logo.svg" alt="Vued-Logo">
+            </a>            </div>
+        <div class="mobile-nav">
+            <div class="burger-logo" id="mobile-nav-btn">
+                <img src="/frontend/assets/burger-icon.svg" alt="burger-icon">
+            </div>
+            <div class="hidden mobile-nav-menu " id="mobile-nav-menu">
+                <!-- TODO: ADD PATHS TO PAGES -->
+                <a href="/frontend/sections/movies.html">Movies</a>
+                <a href="/frontend/sections/recom.html">Recommended</a>
+                <a href="#">Bookmarks</a>
+                <a href="/frontend/index.html" class="signout-btn">Signout</a>
+            </div>
+        </div>
+ 
+        <div class="nav-links">
+            <!-- TODO: ADD PATHS TO PAGES -->
+            <a href="/frontend/sections/movies.html">Movies</a>
+            <a href="/frontend/sections/recom.html">Recommended</a>
+            <a href="#">Bookmarks</a>
+        </div>
+        <div class="large-signout-btn">
+            <a href="/frontend/index.html" class="signout-btn">Signout</a>
+        </div>
+    </nav>
+
+    <main class="movie-content">
+        <div class="movie-poster-section">
+            <div class="movie-poster">
+                <img src="" alt="Movie Poster" id="movie-poster">
+            </div>
+            <h2 class="movie-title" id="movie-title">Loading...</h2>
+            <div class="movie-info" id="movie-info">
+                <span id="release-date">Release Date</span>
+                <span id="genre">Genre</span>
+                <span id="duration">Duration</span>
+            </div>
+        </div>
+
+        <div class="movie-details">
+            <p id="description">Fetching movie details...</p>
+            <button class="rate-btn">Rate</button>
+        </div>
+    </main>
+<script src="/frontend/scripts/description.js"></script>
+</body>
+</html>
