@@ -30,9 +30,10 @@ login_btn.addEventListener("click", (e)=>{
         // if(data.status == "banned"){
         //     window.location.href = 
         // }
-        // if(data.status == "normal"){
-        //     window.location.href =
-        // }
+        if(data.status == "normal"){
+            // window.location.href = ""
+            console.log(data)
+        }
     })
     .catch(error=> console.error(error))
         

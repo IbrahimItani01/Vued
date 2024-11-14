@@ -25,9 +25,6 @@ if($stmt2->num_rows > 0){
     $response['message'] = 'User already registered';
     http_response_code(404);
     echo json_encode($response);
-
-    // take the user to login page
-    // header();
     exit;
 }
 else{
@@ -50,9 +47,6 @@ if ($stmt->execute()){
     $response['message'] = 'User successfully registered!';
     http_response_code(200);
     echo json_encode($response);
-
-    // take the user to login page
-    // header();
 }else{
     $response = [];
     $response['status'] = 'error';

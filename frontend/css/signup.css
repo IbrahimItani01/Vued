@@ -42,7 +42,6 @@
     padding: 0.4rem;
     border: none;
     outline: none;
-    appearance: none;
 }
 .signup-btn{
     position: absolute;
@@ -55,6 +54,10 @@
     border: none;
     border-radius: 10px;
 }
+.signup-btn:hover{
+    cursor: pointer;
+}
+
 
 @media(max-width:730px){
     .signup-bubble{
@@ -79,5 +82,10 @@
     }
     .signup-text{
         margin-bottom: 2rem;
+    }
+    .signup-btn{
+        position: absolute;
+        left: 125px;
+        
     }
 }
