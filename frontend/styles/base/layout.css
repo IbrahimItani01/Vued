@@ -1,0 +1,170 @@
+@font-face {
+    font-family: "montserrat" ;
+    src: url('/frontend/fonts/montesserrat-roboto/Montserrat/Montserrat-VariableFont_wght.ttf');
+    font-weight: bold;
+}
+@font-face{
+    font-family: "roboto";
+    src: url('/frontend/fonts/montesserrat-roboto/Roboto/Roboto-Regular.ttf');
+}
+@font-face {
+    font-family: "roboto";
+    src: url('/frontend/fonts/montesserrat-roboto/Roboto/Roboto-Bold.ttf');
+    font-weight: bold;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: 0;
+    font-family: roboto;
+}
+body{
+    background-image: url('/frontend/assets/smoke-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+body>div{
+    background-color: var(--secondary-color);
+    opacity: 0.9;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    box-shadow: 0 0 8px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top:0;
+    background-color: var(--secondary-color);
+    opacity: 0.7;
+    z-index: 10000000;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+h1{
+    text-transform: uppercase;
+    font-family: 'montserrat';
+    color: var(--tertiary-color);
+    font-size: 50px;
+}
+h2{
+    color: var(--tertiary-color);
+}
+.mobile-nav{
+    
+    position: relative;
+}
+.mobile-nav-menu{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--secondary-color);
+    z-index: 1000;
+    padding: 10px;
+    border-radius: 10px;
+    height: 200px;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+a{
+    padding: 10px;
+    border-radius: 10px;
+}
+a:hover{
+    box-shadow: 0 0 5px;
+}
+.signout-btn{
+    background-color: var(--primary-color);
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+}
+.nav-logo{
+    width: 30px;
+}
+.burger-logo{
+    width: 30px;
+    cursor: pointer;
+}
+
+.nav-links{
+    display: none;
+    width: 400px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.large-signout-btn{
+    display: none;
+}
+.hidden{
+    display: none;
+}
+.main-section{
+    max-width: 1510px;
+    margin-inline: auto;
+}
+.dots-img{
+    width: 35px;
+    margin-inline: auto;
+}
+@media screen  and (min-width: 800px) {
+    .mobile-nav{
+        display: none;
+    }
+    .signout-btn{
+        width: 200px;
+    }
+    nav{
+        padding-inline: 30px;
+    }
+    .large-signout-btn{
+        display: block;
+    }
+    .nav-links{
+        display: flex;
+    }
+   .hero-movie-img{
+    width: 300px;
+   }
+   .hero-movie-img>img{
+    border-radius: 10px;
+
+   }
+   .hero-section{
+    height: 98vh;
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-around;
+
+   }
+   .hero-movie-info{
+    position: unset;
+    padding: 50px;
+    opacity: 0.8;
+    gap: 10px;
+    box-shadow: 0 0 8px;
+}
+.featured-container{
+    width: 50%;
+    margin-inline: auto;
+    height: 400px;
+}
+}
