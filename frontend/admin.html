@@ -2,11 +2,29 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/admin.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vued | Admin</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="flex column align-center gap-3">
+            <div class="admin-logo">
+                <img src="assets/logo.png" alt="vued logo">
+            </div>
+            <div class="content">
+                <h2>Add Admin</h2>
+                <form class="flex column">
+                    <label>Admin name</label>
+                    <input type="text" id="admin-name">
+                    <label>Email</label>
+                    <input type="text" id="admin-email">
+                    <label>Password</label>
+                    <input type="text" id="password">
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
