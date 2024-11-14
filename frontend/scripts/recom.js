@@ -3,12 +3,10 @@ document.getElementById('chatbot-btn').addEventListener('click', function() {
     chatbotContainer.style.display = chatbotContainer.style.display === 'none' ? 'block' : 'none';
 });
 
-// Close chatbot when the close button is clicked
 document.getElementById('close-chatbot').addEventListener('click', function() {
     document.getElementById('chatbot-container').style.display = 'none';
 });
 
-// Chatbot message handling
 document.getElementById("send-button").addEventListener("click", sendMessage);
 document.getElementById("chat-input").addEventListener("keypress", function(event) {
     if (event.key === "Enter") sendMessage();
@@ -28,12 +26,21 @@ async function sendMessage() {
     document.getElementById("chat-input").value = "";
 }
 
+let userMessages = [];
+let AIMessages = [];
+
 function addChatMessage(sender, message) {
     const chatHistory = document.getElementById("chat-history");
     const messageElement = document.createElement("p");
     messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
     chatHistory.appendChild(messageElement);
     chatHistory.scrollTop = chatHistory.scrollHeight;
+
+    if (sender == "Chatbot"){
+        AIMessages.push(message)
+    }else{
+        userMessages.push(message)
+    };
 }
 
 async function getMovieRecommendationFromAPI() {
@@ -64,7 +71,6 @@ async function getMovieRecommendationFromAPI() {
     }
 }
 
-// Format movie information for display in the chatbot
 function formatMovieRecommendation(movie) {
     return `
         <strong>${movie.title}</strong><br>
