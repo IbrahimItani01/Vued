@@ -3,23 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Page</title>
+    <link rel="shortcut icon" href="/frontend/assets/favicon.ico" type="image/x-icon">
+<title>Vued | Movie Info</title>
     <link rel="stylesheet" href="/frontend/styles/sections/descripton.css">
+    <link rel="stylesheet" href="/frontend/styles/base/layout.css">
+
 </head>
 <body>
     <div class="background-blur" id="bg-img"></div>
 
-    <header class="navbar">
-        <div class="logo">
-            <img src="/frontend/assets/logo.png" alt="Logo">
+    <nav>
+        <div class="nav-logo">
+            <a href="/frontend/sections/Ibrahim.html">
+                <img src="/frontend/assets/logo.svg" alt="Vued-Logo">
+            </a>            </div>
+        <div class="mobile-nav">
+            <div class="burger-logo" id="mobile-nav-btn">
+                <img src="/frontend/assets/burger-icon.svg" alt="burger-icon">
+            </div>
+            <div class="hidden mobile-nav-menu " id="mobile-nav-menu">
+                <!-- TODO: ADD PATHS TO PAGES -->
+                <a href="/frontend/sections/movies.html">Movies</a>
+                <a href="/frontend/sections/recom.html">Recommended</a>
+                <a href="#">Bookmarks</a>
+                <a href="/frontend/index.html" class="signout-btn">Signout</a>
+            </div>
         </div>
-        <nav class="nav-links">
-            <a href="#">Movies</a>
-            <a href="#">Recommended</a>
+ 
+        <div class="nav-links">
+            <!-- TODO: ADD PATHS TO PAGES -->
+            <a href="/frontend/sections/movies.html">Movies</a>
+            <a href="/frontend/sections/recom.html">Recommended</a>
             <a href="#">Bookmarks</a>
-            <button class="login-btn">Login</button>
-        </nav>
-    </header>
+        </div>
+        <div class="large-signout-btn">
+            <a href="/frontend/index.html" class="signout-btn">Signout</a>
+        </div>
+    </nav>
 
     <main class="movie-content">
         <div class="movie-poster-section">
