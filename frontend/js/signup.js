@@ -20,7 +20,7 @@ signup_btn.addEventListener('click',async (e)=>{
     data.append("password",password.value);
     data.append("email",email.value);
     try{
-        const result = await fetch('http://localhost/vued/backend/signup.php',{
+        const result = await fetch('http://localhost/vued/backend/authentication/signup.php',{
                 method: 'POST',
                 body: data,
             })
@@ -29,7 +29,12 @@ signup_btn.addEventListener('click',async (e)=>{
         console.log(responseData)
         // take the user to the login page
         if (responseData.status ==="success"){
-            window.Location.href = "http://localhost/vued/frontend/index.html"
+            window.location.href = "http://localhost/vued/frontend/index.html"
+            alert('signup successful')
+        }
+        if(responseData.status === "failed"){
+            window.location.href = "http://localhost/vued/frontend/index.html"
+            alert('User already registered')
         }
         }catch(error){
 
