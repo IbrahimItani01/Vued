@@ -5,7 +5,7 @@ const bgblurimage = document.getElementById("bg-img");
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const response = await fetch('http://localhost/Vued/backend/getMovieData.php', {
+        const response = await fetch('http://localhost/Vued/backend/movies/getMovieData.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

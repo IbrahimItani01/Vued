@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .post(
       "http://localhost/Vued/backend/movies/getMovieData.php",
       {
-        movieId: Math.floor(Math.random() * (167 - 127)) + 127,
+        movieId: Math.floor(Math.random() * (44 - 3)) + 3,
       },
       {
         headers: {
